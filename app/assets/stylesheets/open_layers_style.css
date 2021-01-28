@@ -1,0 +1,45 @@
+#web-map{
+	height: 100vh;
+	width: 100%;
+	border: 1px solid #ccc;
+}
+#lat_lon_save_Modal .modal-header, #user_Modal .modal-header{
+	padding: 5px;
+	display: block;
+	background-color: #ccc;
+}
+
+.action-btn{
+	clear: both;
+}
+
+.tableFixHead{ 
+	overflow-y: auto; 
+	height: 300px; 
+}
+.tableFixHead thead th { 
+	position: sticky; 
+	top: 0; 
+}
+
+/* Just common table stuff. Really. */
+.tableFixHead table { 
+	/*border-collapse: collapse; */
+	width: 100%; 
+}
+.tableFixHead table th, td { padding: 8px 16px; }
+.tableFixHead table th     { background:#eee; }
+.nav_header{
+	flex-direction: unset !important;
+}
+.nav_header li{
+	float: left;
+	padding: 0px 10px 0px 10px;
+}
+.profiler-no-controls{
+	display: none;
+}
+
+#user_Modal .modal-content{
+	width: 650px;
+}

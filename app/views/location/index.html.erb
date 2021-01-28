@@ -1,0 +1,70 @@
+<div class="modal fade" id="lat_lon_save_Modal" role="dialog" data-backdrop="static" data-keyboard="false">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h6 class="modal-title">Save And Share Location</h6>
+			</div>
+			<div class="modal-body">
+				<div class="form-group">
+					<label for="latitude">Latitude:</label>
+					<input type="text" class="form-control" id="latitude" readonly>
+				 </div>
+				<div class="form-group">
+					<label for="longitude">Longitude:</label>
+					<input type="text" class="form-control" id="longitude" readonly>
+				 </div>
+				<label class="radio-inline">
+					<input type="radio" id="save_for_private" name="save_location" value="private" checked> Save for Private
+				</label>
+				<label class="radio-inline">
+					<input type="radio" id="save_for_individual" name="save_location" value="individual" onchange="fetch_all_user()"> Save for Individual
+				</label>
+				<label class="radio-inline">
+					<input type="radio" name="save_location" value="public"> Save for Public
+				</label>
+				<div class="action-btn">
+				<button type="submit" class="btn btn-primary" id="save_and_share_location" onclick="save_and_share_location()">Save</button>
+				<button type="submit" class="btn btn-danger" onclick="close_lat_lon_Modal()">Cancel</button>
+				</div>
+			</div>
+			<div class="modal-footer">
+				
+			</div>
+		</div>
+	</div>
+</div>	
+<div class="modal fade" id="user_Modal" role="dialog" data-backdrop="static" data-keyboard="false">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h6 class="modal-title">Select User</h6>
+			</div>
+			<div class="modal-body">
+				<div class="table-responsive user_list_div tableFixHead">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th><input type='checkbox' id="select_all" name='select_all' value='' onclick="select_all_users()"></th>
+								<th>User Name</th>
+								<th>Firstname</th>
+								<th>Lastname</th>
+								<th>Email</th>
+							</tr>
+						</thead>
+						<tbody id="user_list">
+							
+						</tbody>
+					</table>
+				</div>
+				<div class="action-btn">
+					<button type="submit" class="btn btn-primary" id="save_and_share_location" onclick="close_user_Modal()">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>	
+<input type="hidden" id="selected_user_id" value="">
+<input type="hidden" id="user_id" value="<%= @user_id %>">
+<div id="web-map"></div>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TestApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"> 
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+	<style>
+		.tableFixHead{
+			height: 90vh;
+		}
+	</style>
+  </head>
+
+  <body>
+	<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="javascript:void(0)">Location APP</a>
+					<% if current_user %> 
+					<a class="navbar-brand" href="javascript:void(0)"><%=current_user.first_name%> <%=current_user.last_name%></a>
+					<% end %>
+				</div>
+				<ul class="nav navbar-nav nav_header">
+						<% if current_user %> 
+							<li class="active"><a href="/users">Users</a></li>
+							<li><%= link_to "Share Location", share_location_path, method: :get %></li>
+							<li><%= link_to "Edit User", edit_user_registration_path, method: :get %></li>
+							<li><%= link_to "Sign Out", destroy_user_session_path, method: :get %></li>
+							<%
+						else
+						%>
+						<li><%= link_to "Sign In", new_user_session_path %></li>
+						<li><%= link_to  "Sign Up", new_user_registration_path %></li>
+					<% end %>
+				</ul>
+			</div>
+		</nav>
+    <%= yield %> 
+  </body>
+</html>
